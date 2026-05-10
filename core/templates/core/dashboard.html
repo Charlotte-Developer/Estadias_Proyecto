@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %} {% block title %}Mi Panel - UTT{% endblock %}
+{%block content %}
+<div class="container mt-5 text-center">
+  <h1 class="text-utt-verde fw-bold">
+    ¡Bienvenido, {{ request.user.nombre_completo }}!
+  </h1>
+  <p
+    class="text-muted code-font bg-white d-inline-block px-3 py-1 rounded shadow-sm border"
+  >
+    Matrícula: {{ request.user.matricula }} | Rol: {{ request.user.rol }}
+  </p>
+
+  <div class="alert alert-success mt-4 shadow-sm border-0">
+    Has iniciado sesión correctamente. Aquí construiremos tu panel de progreso.
+  </div>
+</div>
+{% endblock %}

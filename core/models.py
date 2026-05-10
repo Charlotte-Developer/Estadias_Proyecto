@@ -45,6 +45,10 @@ class Usuario(AbstractUser):
 class Taller(models.Model):
     nombre = models.CharField(max_length=100)
     tutor = models.ForeignKey(Usuario, on_delete=models.CASCADE, limit_choices_to={'rol': 'DOCENTE'})
+    
+    class Meta:
+        verbose_name = 'Taller'
+        verbose_name_plural = 'Talleres'
 
     def __str__(self):
         return self.nombre
@@ -53,6 +57,10 @@ class Evento(models.Model):
     nombre = models.CharField(max_length=200)
     fecha_evento = models.DateField()
     descripcion = models.TextField(blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Evento'
+        verbose_name_plural = 'Eventos'
 
     def __str__(self):
         return self.nombre
@@ -70,6 +78,10 @@ class AsistenciaTaller(models.Model):
     nivel_asistencia = models.CharField(max_length=10, choices=NIVELES, default='NINGUNA')
     periodo = models.CharField(max_length=50) # Ej. Sep-Dic 2026
 
+    class Meta:
+        verbose_name = 'Asistencia al Taller'
+        verbose_name_plural = 'Asistencias a los Talleres'
+
     def __str__(self):
         return f"{self.alumno.matricula} - {self.taller.nombre} - {self.nivel_asistencia}"
 
@@ -85,6 +97,11 @@ class EvidenciaEvento(models.Model):
     estado_validacion = models.CharField(max_length=15, choices=ESTADOS, default='PENDIENTE')
     fecha_subida = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = 'Evidencia de Evento'
+        verbose_name_plural = 'Evidencias de Eventos'
+
+    
     def __str__(self):
         return f"{self.alumno.matricula} - {self.evento.nombre}"
 
@@ -93,6 +110,10 @@ class CartaLiberacion(models.Model):
     codigo_unico = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     fecha_emision = models.DateTimeField(auto_now_add=True)
     porcentaje_final = models.IntegerField()
+
+    class Meta:
+        verbose_name = 'Carta de Liberación'
+        verbose_name_plural = 'Cartas de Liberación'
 
     def __str__(self):
         return f"Carta - {self.alumno.matricula}"

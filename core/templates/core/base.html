@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es-mx">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Sistema de Talleres UTT{% endblock %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f9; /* Un blanco ligeramente grisáceo para que resalten las tarjetas */
+      }
+      .code-font {
+        font-family: "Fira Code", monospace;
+      }
+
+      /* Paleta de Colores Institucionales UTT */
+      .text-utt-verde {
+        color: #007a33 !important;
+      }
+      .bg-utt-verde {
+        background-color: #007a33 !important;
+      }
+
+      .btn-utt-mandarina {
+        background-color: #ff8200; /* Tono mandarina/naranja */
+        border-color: #ff8200;
+        color: white;
+      }
+      .btn-utt-mandarina:hover {
+        background-color: #e67600; /* Un poco más oscuro al pasar el mouse */
+        border-color: #e67600;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    {% block content %} {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

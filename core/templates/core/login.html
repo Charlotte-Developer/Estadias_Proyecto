@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %} {% block title %}Iniciar Sesión - UTT{% endblock
+%} {% block content %}
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div
+    class="card shadow-lg border-0"
+    style="width: 100%; max-width: 400px; background-color: #ffffff"
+  >
+    <div class="bg-utt-verde rounded-top" style="height: 8px"></div>
+
+    <div class="card-body p-5">
+      <div class="text-center mb-4">
+        <h3 class="fw-bold text-utt-verde">Sistema de Talleres</h3>
+        <p class="text-muted fw-semibold">
+          Universidad Tecnológica de Tlaxcala
+        </p>
+      </div>
+
+      {% if messages %} {% for message in messages %}
+      <div class="alert alert-danger shadow-sm" role="alert">{{ message }}</div>
+      {% endfor %} {% endif %}
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="matricula" class="form-label text-dark fw-bold code-font"
+            >Matrícula / Empleado</label
+          >
+          <input
+            type="text"
+            class="form-control border-secondary-subtle"
+            id="matricula"
+            name="matricula"
+            required
+            placeholder="Ej. 213456"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="password" class="form-label text-dark fw-bold code-font"
+            >Contraseña</label
+          >
+          <input
+            type="password"
+            class="form-control border-secondary-subtle"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-utt-mandarina w-100 fw-bold shadow-sm"
+        >
+          Ingresar al Sistema
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
