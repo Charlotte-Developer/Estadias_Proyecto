@@ -1,62 +1,43 @@
-{% extends 'core/base.html' %} {% block title %}Iniciar Sesión - UTT{% endblock
-%} {% block content %}
-<div class="d-flex align-items-center justify-content-center vh-100">
-  <div
-    class="card shadow-lg border-0"
-    style="width: 100%; max-width: 400px; background-color: #ffffff"
-  >
-    <div class="bg-utt-verde rounded-top" style="height: 8px"></div>
+{% extends 'core/base.html' %}
+{% block title %}Iniciar Sesión - UTT{% endblock %}
 
-    <div class="card-body p-5">
-      <div class="text-center mb-4">
-        <h3 class="fw-bold text-utt-verde">Sistema de Talleres</h3>
-        <p class="text-muted fw-semibold">
-          Universidad Tecnológica de Tlaxcala
-        </p>
-      </div>
-
-      {% if messages %} {% for message in messages %}
-      <div class="alert alert-danger shadow-sm" role="alert">{{ message }}</div>
-      {% endfor %} {% endif %}
-
-      <form method="POST">
-        {% csrf_token %}
-
-        <div class="mb-3">
-          <label for="matricula" class="form-label text-dark fw-bold code-font"
-            >Matrícula / Empleado</label
-          >
-          <input
-            type="text"
-            class="form-control border-secondary-subtle"
-            id="matricula"
-            name="matricula"
-            required
-            placeholder="Ej. 213456"
-          />
+{% block content %}
+<div class="d-flex align-items-center justify-content-center vh-100" style="background-color: #f4f7f6;">
+    
+    <div class="card shadow-lg border-0" style="width: 100%; max-width: 420px; border-radius: 15px; overflow: hidden;">
+        
+        <div class="card-header text-center py-4 border-0" style="background: linear-gradient(135deg, #007A33 0%, #005A25 100%); color: white;">
+            <h3 class="fw-bold mb-0">SSCA - UTT</h3>
+            <p class="mb-0 small text-light opacity-75">Sistema de Control de Talleres</p>
         </div>
+        
+        <div class="card-body p-5 bg-white">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger shadow-sm border-0 rounded-3" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
-        <div class="mb-4">
-          <label for="password" class="form-label text-dark fw-bold code-font"
-            >Contraseña</label
-          >
-          <input
-            type="password"
-            class="form-control border-secondary-subtle"
-            id="password"
-            name="password"
-            required
-          />
+            <form method="POST">
+                {% csrf_token %} 
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control bg-light border-0" id="matricula" name="matricula" required placeholder="Matrícula">
+                    <label for="matricula" class="text-muted fw-semibold">Matrícula / Empleado</label>
+                </div>
+                
+                <div class="form-floating mb-4">
+                    <input type="password" class="form-control bg-light border-0" id="password" name="password" required placeholder="Contraseña">
+                    <label for="password" class="text-muted fw-semibold">Contraseña</label>
+                </div>
+                
+                <button type="submit" class="btn w-100 fw-bold shadow-sm py-3 text-white" style="background-color: #F26A21; border-radius: 8px; transition: 0.3s; font-size: 1.1rem;">
+                    Ingresar al Sistema
+                </button>
+            </form>
         </div>
-
-        <button
-          type="submit"
-          class="btn btn-utt-mandarina w-100 fw-bold shadow-sm"
-        >
-          Ingresar al Sistema
-        </button>
-      </form>
     </div>
-  </div>
 </div>
 {% endblock %}

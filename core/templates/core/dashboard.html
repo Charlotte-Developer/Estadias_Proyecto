@@ -1,17 +1,70 @@
-{% extends 'core/base.html' %} {% block title %}Mi Panel - UTT{% endblock %}
-{%block content %}
-<div class="container mt-5 text-center">
-  <h1 class="text-utt-verde fw-bold">
-    ¡Bienvenido, {{ request.user.nombre_completo }}!
-  </h1>
-  <p
-    class="text-muted code-font bg-white d-inline-block px-3 py-1 rounded shadow-sm border"
-  >
-    Matrícula: {{ request.user.matricula }} | Rol: {{ request.user.rol }}
-  </p>
+{% extends 'core/base.html' %}
+{% block title %}Mi Panel - UTT{% endblock %}
 
-  <div class="alert alert-success mt-4 shadow-sm border-0">
-    Has iniciado sesión correctamente. Aquí construiremos tu panel de progreso.
-  </div>
+{% block content %}
+<div style="background-color: #f4f7f6; min-height: 100vh; padding-bottom: 50px;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #007A33;">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🎓 SSCA - UTT</a>
+            <div class="d-flex align-items-center">
+                <span class="text-white me-4 d-none d-md-block">Rol: <span class="badge bg-warning text-dark">{{ request.user.rol }}</span></span>
+                <form action="{% url 'admin:logout' %}?next=/" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-light btn-sm fw-bold border-2" style="border-radius: 20px; padding: 5px 20px;">Cerrar Sesión</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 shadow rounded-4 overflow-hidden">
+                    <div class="card-body p-5" style="background: linear-gradient(to right, #ffffff, #f8f9fa);">
+                        <h2 class="fw-bold" style="color: #007A33; font-size: 2.5rem;">¡Hola, {{ request.user.nombre_completo }}!</h2>
+                        <p class="text-muted fs-5 mb-0">Usuario ID: <span class="fw-bold text-dark">{{ request.user.matricula }}</span></p>
+                        <hr class="w-25 my-4" style="border-color: #F26A21; border-width: 4px; opacity: 1;">
+                        <p class="mb-0 fs-5">Bienvenido al panel principal. Aquí podrás coordinar tus actividades, subir evidencias y revisar tu porcentaje para la carta de liberación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="fw-bold text-secondary mb-4">Módulos del Sistema</h4>
+        <div class="row g-4">
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4 bg-white" style="border-radius: 15px; border-bottom: 6px solid #007A33 !important;">
+                    <div class="card-body">
+                        <div class="display-3 mb-3">📊</div>
+                        <h5 class="card-title fw-bold">Mi Progreso</h5>
+                        <p class="card-text text-muted">Consulta tu porcentaje de avance actual y las horas acumuladas en los talleres.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4 bg-white" style="border-radius: 15px; border-bottom: 6px solid #F26A21 !important;">
+                    <div class="card-body">
+                        <div class="display-3 mb-3">📸</div>
+                        <h5 class="card-title fw-bold">Subir Evidencia</h5>
+                        <p class="card-text text-muted">Sube tus fotografías o reportes para que sean validados por el área de Secretaría.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4 bg-white" style="border-radius: 15px; border-bottom: 6px solid #6c757d !important;">
+                    <div class="card-body">
+                        <div class="display-3 mb-3">📜</div>
+                        <h5 class="card-title fw-bold">Liberación</h5>
+                        <p class="card-text text-muted">Genera y descarga tu carta oficial al completar el 100% de tus actividades.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 {% endblock %}
