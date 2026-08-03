@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Panel de Alumno - SSCA UTT{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm p-4" style="background: linear-gradient(135deg, #007A33 0%, #005A25 100%); color: white; border-radius: 15px;">
+            <h2 class="fw-bold mb-1">¡Hola, {{ user.first_name|default:user.username }}!</h2>
+            <p class="mb-0 opacity-75">Panel de Estudiante | SSCA - UTT</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Tarjeta: Subir Evidencia -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm border-0 h-100" style="border-radius: 15px;">
+            <div class="card-body p-4 text-center d-flex flex-column justify-content-between">
+                <div>
+                    <div class="mb-3">
+                        <i class="bi bi-camera-fill display-5" style="color: #007A33;"></i>
+                    </div>
+                    <h5 class="fw-bold">Subir Evidencia</h5>
+                    <p class="text-muted small">Registra fotografías y avances de tus talleres para validación de horas.</p>
+                </div>
+                <a href="#" class="btn text-white fw-bold w-100 py-2 mt-3" style="background-color: #F26A21; border-radius: 8px;">
+                    <i class="bi bi-cloud-upload-fill me-1"></i> Nueva Evidencia
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjeta: Mi Progreso -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm border-0 h-100" style="border-radius: 15px;">
+            <div class="card-body p-4 text-center d-flex flex-column justify-content-between">
+                <div>
+                    <div class="mb-3">
+                        <i class="bi bi-graph-up-arrow display-5" style="color: #007A33;"></i>
+                    </div>
+                    <h5 class="fw-bold">Mi Progreso</h5>
+                    <p class="text-muted small">Consulta tu porcentaje actual de asistencia y estatus de liberación.</p>
+                </div>
+                <button class="btn btn-outline-success fw-bold w-100 py-2 mt-3" style="border-radius: 8px;">
+                    Ver Historial
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjeta: Mis Talleres -->
+    <div class="col-md-12 col-lg-4">
+        <div class="card shadow-sm border-0 h-100" style="border-radius: 15px;">
+            <div class="card-body p-4 text-center d-flex flex-column justify-content-between">
+                <div>
+                    <div class="mb-3">
+                        <i class="bi bi-collection-play-fill display-5 text-secondary"></i>
+                    </div>
+                    <h5 class="fw-bold">Mis Talleres</h5>
+                    <p class="text-muted small">Revisa los talleres culturales o deportivos en los que estás inscrito.</p>
+                </div>
+                <button class="btn btn-outline-secondary fw-bold w-100 py-2 mt-3" style="border-radius: 8px;">
+                    Detalles
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

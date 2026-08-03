@@ -1,0 +1,226 @@
+/* ==========================================================
+   SSCA - UTT
+   Sistema de Sincronización y Coordinación de Actividades
+   Universidad Tecnológica de Tlaxcala
+   Autor: Charlotte Núñez
+========================================================== */
+
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root{
+
+    --primary:#006B3F;
+    --primary-dark:#005232;
+
+    --secondary:#F58220;
+    --secondary-dark:#D96E12;
+
+    --success:#198754;
+    --danger:#DC3545;
+    --warning:#FFC107;
+    --info:#0DCAF0;
+
+    --background:#F4F7FA;
+    --white:#FFFFFF;
+
+    --text:#273444;
+    --text-light:#6C757D;
+
+    --border:#E5E7EB;
+
+    --shadow:0 5px 18px rgba(0,0,0,.08);
+
+    --radius:14px;
+
+    --sidebar-width:280px;
+
+    --transition:.30s ease;
+
+}
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#C7CDD4;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#9EA7B3;
+
+}
+
+
+/* ==========================================================
+   LAYOUT
+========================================================== */
+
+.main-content{
+
+    margin-left:var(--sidebar-width);
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:var(--transition);
+
+}
+
+.content-wrapper{
+
+    flex:1;
+
+    padding:35px;
+
+}
+
+
+/* ==========================================================
+   NAVBAR
+========================================================== */
+
+.navbar-custom{
+
+    height:72px;
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:900;
+
+}
+
+.navbar-title{
+
+    font-size:1.35rem;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+.navbar .btn{
+
+    border:none;
+
+    background:transparent;
+
+}
+
+.navbar .btn:hover{
+
+    background:#F2F4F7;
+
+}
+
+.dropdown-menu{
+
+    border:none;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    padding:10px;
+
+}
+
+.dropdown-item{
+
+    border-radius:10px;
+
+    padding:10px 14px;
+
+    transition:var(--transition);
+
+}
+
+.dropdown-item:hover{
+
+    background:#F3F7F5;
+
+    color:var(--primary);
+
+}

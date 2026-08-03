@@ -1,0 +1,115 @@
+{% extends 'core/base_auth.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid vh-100">
+
+    <div class="row h-100">
+
+        <!-- Panel izquierdo -->
+
+        <div class="col-lg-7 d-none d-lg-flex flex-column justify-content-center align-items-center text-white"
+             style="background:linear-gradient(135deg,#006B3F,#00492E);">
+
+            <i class="bi bi-mortarboard-fill display-1 mb-4"></i>
+
+            <h1 class="fw-bold">
+
+                SSCA - UTT
+
+            </h1>
+
+            <h4 class="fw-light">
+
+                Sistema de Sincronización y Coordinación de Actividades
+
+            </h4>
+
+            <p class="mt-4 w-75 text-center">
+
+                Plataforma institucional para la gestión de talleres,
+                eventos, evidencias y liberación de actividades
+                estudiantiles.
+
+            </p>
+
+        </div>
+
+        <!-- Login -->
+
+        <div class="col-lg-5 d-flex justify-content-center align-items-center">
+
+            <div class="card shadow-lg p-5" style="width:430px;">
+
+                <h2 class="text-center fw-bold mb-2">
+
+                    Bienvenido
+
+                </h2>
+
+                <p class="text-center text-muted mb-4">
+
+                    Inicia sesión para continuar
+
+                </p>
+
+                {% include 'core/includes/messages.html' %}
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Matrícula
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="matricula"
+                            class="form-control form-control-lg"
+                            required>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+
+                            Contraseña
+
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            class="form-control form-control-lg"
+                            required>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary w-100 btn-lg">
+
+                        <i class="bi bi-box-arrow-in-right"></i>
+
+                        Ingresar
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

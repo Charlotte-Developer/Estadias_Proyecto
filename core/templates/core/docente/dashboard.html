@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Panel de Docente - SSCA UTT{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm p-4" style="background: linear-gradient(135deg, #005A25 0%, #1a3c2b 100%); color: white; border-radius: 15px;">
+            <h2 class="fw-bold mb-1">Prof. {{ user.first_name|default:user.username }}</h2>
+            <p class="mb-0 opacity-75">Panel Docente | Control de Asistencias y Evidencias</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Tarjeta: Validar Evidencias -->
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0 h-100" style="border-radius: 15px;">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-check-circle-fill display-6 me-3" style="color: #007A33;"></i>
+                    <div>
+                        <h5 class="fw-bold mb-0">Validar Evidencias</h5>
+                        <small class="text-muted">Revisión de actividades pendientes</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Aprueba o rechaza las fotografías enviadas por los alumnos de tus grupos asignados.</p>
+                <a href="#" class="btn text-white fw-bold w-100 py-2 mt-2" style="background-color: #F26A21; border-radius: 8px;">
+                    Revisar Pendientes
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjeta: Pase de Asistencia -->
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0 h-100" style="border-radius: 15px;">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-calendar-check-fill display-6 me-3 text-secondary"></i>
+                    <div>
+                        <h5 class="fw-bold mb-0">Pase de Asistencia</h5>
+                        <small class="text-muted">Listas de grupos y talleres</small>
+                    </div>
+                </div>
+                <p class="text-muted small">Registra la asistencia en tiempo real durante la sesión del taller.</p>
+                <button class="btn btn-outline-success fw-bold w-100 py-2 mt-2" style="border-radius: 8px;">
+                    Seleccionar Grupo
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

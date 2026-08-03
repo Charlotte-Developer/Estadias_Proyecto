@@ -1,7 +1,12 @@
 from django.urls import path
-from . import views
+from .views.auth_views import (
+    login_view,
+    dashboard_view,
+    logout_view,
+)
 
 urlpatterns = [
-    path('', views.login_view, name='login'), # La ruta raíz será el login
-    path('dashboard/', views.dashboard_view, name='dashboard'), # Aquí los mandaremos al entrar
+    path('', login_view, name='login'),
+    path('dashboard/', dashboard_view, name='dashboard'),
+    path('logout/', logout_view, name='logout'),
 ]
